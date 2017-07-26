@@ -37,7 +37,7 @@ Repeat the same process for the microphone usage description. The key is `Privac
 Repeat the same process for the photo library usage description. The key is `Privacy - Photo Library Usage Description` and the sample value is `To share photos, (PROJECT_NAME) needs access to your photo library.`
 
 # Link MobileRTC Framework and Bundle
-Download the [MobileRTC framework](http://hybridupdate.zoom.us/latest/rtc/iOS-MobileRTC-Stack-with-Device-only-framework-master.zip) and unzip the contents. Create a folder in your project called `lib`. Copy the contents of the `/lib/` folder from the uncompressed zoom-ios-mobilertc folder into your project directory `/lib/` you just created and copy the `Zoom iOS MobileRTC.pdf` file from `/doc/` into your project for reference. Delete zoom-ios-mobilertc.zip as well as the uncompressed folder.
+Download the [MobileRTC framework](http://hybridupdate.zoom.us/latest/rtc/iOS-MobileRTC-Stack-with-Device-only-framework-master.zip) and unzip the contents. Create a folder in your project called `lib`. Copy the contents of the `/lib/` folder from the uncompressed zoom-ios-mobilertc folder into your project directory `/lib/` you just created and copy the `Zoom iOS MobileRTC.pdf` file from `/doc/` into your project for reference. Delete `zoom-ios-mobilertc.zip` as well as the uncompressed folder.
 
 ## Importing MobileRTCResources.bundle
 Navigate to your project directory and go to `/lib/`. With Xcode open, drag and drop the `MobileRTCResources.bundle` into your project and make sure that your project target is checked off.
