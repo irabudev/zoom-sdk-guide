@@ -73,4 +73,4 @@ Download the [ZoomService.swift](https://github.com/george-lim/zoom-service) fil
 In your `AppDelegate.swift` file, add the line `ZoomService.sharedInstance.authenticateSDK()` in your `didFinishLaunchingWithOptions` function.
 
 ## Next Steps
-Navigate the [Zoom Service](https://github.com/george-lim/zoom-service) GitHub project and follow the `Usage` guide next to setup MobileRTC authentication and begin using the functions provided by Zoom Service.
+Navigate to the [Zoom Service](https://github.com/george-lim/zoom-service) GitHub project and follow the `Usage` guide to setup MobileRTC authentication and begin using the functions provided by Zoom Service.
