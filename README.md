@@ -25,7 +25,7 @@ Because we created a Swift project and attempted to add an Objective-C file, Xco
 You should now have a new file in your project called `(PROJECT_NAME)-Bridging-Header.h`. Here, we will specify the frameworks that are written in Objective-C and expose them to Swift. **Any framework written here will be accessible to any Swift file without the need to import.**
 
 # Privacy Setup
-MobileRTC requires access to the user's camera, microphone, and photo library in order to function. We are required to explicitly provide a description for each privacy type in our `info.plist` file in order to prevent crashes in the app MobileRTC requests the permissions. To do this, we first navigate to `info.plist` in our project.
+MobileRTC requires access to the user's camera, microphone, and photo library in order to function. We are required to explicitly provide a description for each privacy type in our `info.plist` file in order to prevent crashes in the app MobileRTC requests the permissions. Additionally, you should include the bluetooth peripheral usage and calendars usage descriptions as well to pass your app review. To do this, we first navigate to `info.plist` in our project.
 
 ## Privacy - Camera Usage Description
 Add a new key in the `info.plist` file and type `Privacy - Camera Usage Description`. Xcode should automatically find the key you are looking for. In the value tab, type a description message that will be shown to users when your app requires the camera usage permission. The message used from the [Zoom Service sample app](https://github.com/george-lim/zoom-service-sample-app) is `For people to see you during meetings, (PROJECT_NAME) needs access to your camera.`
@@ -36,6 +36,12 @@ Repeat the same process for the microphone usage description. The key is `Privac
 ## Privacy - Photo Library Usage Description
 Repeat the same process for the photo library usage description. The key is `Privacy - Photo Library Usage Description` and the sample value is `To share photos, (PROJECT_NAME) needs access to your photo library.`
 
+## Privacy - Bluetooth Peripheral Usage Description
+Repeat the same process for the bluetooth peripheral usage description. The key is `Privacy - Bluetooth Peripheral Usage Description` and the sample value is `To use Bluetooth devices to communicate, (PROJECT_NAME) needs access to your Bluetooth peripherals.`
+
+## Privacy - Calendars Usage Description
+Repeat the same process for the calendars usage description. The key is `Privacy - Calendars Usage Description` and the sample value is `To integrate Zoom meetings with your schedule, (PROJECT_NAME) needs access to your calendar.`
+
 # Link MobileRTC Framework and Bundle
 Download the [MobileRTC framework](http://hybridupdate.zoom.us/latest/rtc/iOS-MobileRTC-Stack-with-Device-only-framework-master.zip) and unzip the contents. Create a folder in your project called `lib`. Copy the contents of the `/lib/` folder from the uncompressed zoom-ios-mobilertc folder into your project directory `/lib/` you just created and copy the `Zoom iOS MobileRTC.pdf` file from `/doc/` into your project for reference. Delete `zoom-ios-mobilertc.zip` as well as the uncompressed folder.
 
@@ -43,7 +49,7 @@ Download the [MobileRTC framework](http://hybridupdate.zoom.us/latest/rtc/iOS-Mo
 Navigate to your project directory and go to `/lib/`. With Xcode open, drag and drop the `MobileRTCResources.bundle` into your project and make sure that your project target is checked off.
 
 ## Importing MobileRTC.framework and all of its dependencies
-In Xcode, click on your project target and go to the `General` tab on the top. scroll down until you see the section `Linked Frameworks and Libraries`. Drag and drop the `MobileRTC.framework` file from `/lib/` in your project directory.
+In Xcode, click on your project target and go to the `General` tab on the top. Scroll down until you see the section `Linked Frameworks and Libraries`. Drag and drop the `MobileRTC.framework` file from `/lib/` in your project directory.
 
 From Zoom's official documentation, MobileRTC requires a few other frameworks in order to function correctly. These frameworks include:
 
@@ -61,13 +67,13 @@ Click on the little `+` button under the `Linked Frameworks and Libraries` secti
 In Xcode, navigate back to the bridging header file we created earlier. Add the line `#import <MobileRTC/MobileRTC.h>` to the header file and now, your project should recognize all MobileRTC functions, delegates, etc. You can test this out by going to `ViewController.swift` and typing `MobileRTC` in your `viewDidLoad()` function and seeing if Xcode presents any options for you.
 
 # Bitcode Setup
-By this point, if you have tried to build your project, you may have realized that Xcode throws a linker error at you. Upon closer inspection, it looks like MobileRTC does not contain bitcode, which makes Xcode unhappy. To fix this error, click on your project target and go to the `Build Settings` tab. Search `bitcode` and set the `Enable Bitcode` setting value from `Yes` to `No`. Building the project now should work without any problems.
+By this point, if you have tried to build your project, you may have realized that Xcode throws a linker error at you. Upon closer inspection, it looks like MobileRTC does not contain bitcode, which makes Xcode unhappy. To fix this error, navigate to your project target and click on the `Build Settings` tab. Search `bitcode` and set the `Enable Bitcode` setting value from `Yes` to `No`. Building the project now should work without any problems.
 
-**At this point, you have now fully integrated MobileRTC into your program. You can refer to the `Zoom iOS MobileRTC.pdf` file from earlier to look at how to setup the API for MobileRTC and begin using the framework. The rest of the guide will focus on integrating Zoom Service into the app.**
+**At this point, you have fully integrated MobileRTC into your program. You can refer to the `Zoom iOS MobileRTC.pdf` file from earlier to look at how to setup the API for MobileRTC and begin using the framework. The rest of the guide will focus on integrating Zoom Service into the app.**
 
 # Zoom Service Setup
 ## Adding ZoomService.swift
-Download the [ZoomService.swift](https://github.com/george-lim/zoom-service) file and add it to your project, making sure that your project target is checked off.
+Download the [ZoomService.swift](https://github.com/george-lim/zoom-service) file and add it to your project, making sure that your project target is checked off for the file.
 
 ## Authenticate SDK function call in AppDelegate.swift
 In your `AppDelegate.swift` file, add the line `ZoomService.sharedInstance.authenticateSDK()` in your `didFinishLaunchingWithOptions` function.
