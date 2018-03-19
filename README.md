@@ -1,4 +1,10 @@
 Zoom SDK Guide
+<br>
+![GitHub downloads](https://img.shields.io/github/downloads/george-lim/zoom-sdk-guide/total.svg)
+[![GitHub release](https://img.shields.io/github/release/george-lim/zoom-sdk-guide.svg)](https://github.com/george-lim/zoom-sdk-guide/releases)
+[![GitHub issues](https://img.shields.io/github/issues/george-lim/zoom-sdk-guide.svg)](https://github.com/george-lim/zoom-sdk-guide/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/george-lim/zoom-sdk-guide.svg)](https://github.com/george-lim/zoom-sdk-guide/pulls)
+[![license](https://img.shields.io/github/license/george-lim/zoom-sdk-guide.svg)](https://github.com/george-lim/zoom-sdk-guide/blob/master/LICENSE)
 ===============
 
 Zoom's official MobileRTC documentation is fairly confusing and unclear. Additionally, it is written for Objective-C, so programmers wishing to write Swift programs may not know how to bridge MobileRTC into Swift. This project tries to give Swift programmers a better understanding of how to properly integrate MobileRTC into new applications.
