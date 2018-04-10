@@ -34,7 +34,7 @@ You should now have a new file in your project called `(PROJECT_NAME)-Bridging-H
 MobileRTC requires access to the user's camera, microphone, and photo library in order to function. We are required to explicitly provide a description for each privacy type in our `info.plist` file in order to prevent crashes in the app MobileRTC requests the permissions. Additionally, you should include the bluetooth peripheral usage and calendars usage descriptions as well to pass your app review. To do this, we first navigate to `info.plist` in our project.
 
 ## Privacy - Camera Usage Description
-Add a new key in the `info.plist` file and type `Privacy - Camera Usage Description`. Xcode should automatically find the key you are looking for. In the value tab, type a description message that will be shown to users when your app requires the camera usage permission. The message used from the [Zoom Service sample app](https://github.com/george-lim/zoom-service-sample-app) is `For people to see you during meetings, (PROJECT_NAME) needs access to your camera.`
+Add a new key in the `info.plist` file and type `Privacy - Camera Usage Description`. Xcode should automatically find the key you are looking for. In the value tab, type a description message that will be shown to users when your app requires the camera usage permission. The message used from the [Zoom Service sample app](https://github.com/george-lim/zoom-service/tree/master/Example) is `For people to see you during meetings, (PROJECT_NAME) needs access to your camera.`
 
 ## Privacy - Microphone Usage Description
 Repeat the same process for the microphone usage description. The key is `Privacy - Microphone Usage Description` and a sample value is `For people to hear you during meetings, (PROJECT_NAME) needs access to your microphone.`
@@ -79,7 +79,7 @@ By this point, if you have tried to build your project, you may have realized th
 
 # Zoom Service Setup
 ## Adding ZoomService.swift
-Download the [ZoomService.swift](https://github.com/george-lim/zoom-service) file and add it to your project, making sure that your project target is checked off for the file.
+Download the [ZoomService.swift](https://github.com/george-lim/zoom-service/blob/master/ZoomService.swift) file and add it to your project, making sure that your project target is checked off for the file.
 
 ## Authenticate SDK function call in AppDelegate.swift
 In your `AppDelegate.swift` file, add the line `ZoomService.sharedInstance.authenticateSDK()` in your `didFinishLaunchingWithOptions` function.
